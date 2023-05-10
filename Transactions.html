@@ -1,0 +1,72 @@
+<!-- HTML code for the feature engineering page -->
+
+<table>
+
+  <thead>
+
+    <tr>
+
+      <th>Amount</th>
+
+      <th>Transaction Type</th>
+
+      <th>Location</th>
+
+      <th>Time of Day</th>
+
+      <th>New Feature 1</th>
+
+      <th>New Feature 2</th>
+
+      <th>New Feature 3</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <% transactions.forEach((transaction) => { %>
+
+      <tr>
+
+        <td><%= transaction.amount %></td>
+
+        <td><%= transaction.transactionType %></td>
+
+        <td><%= transaction.location %></td>
+
+        <td><%= transaction.timeOfDay %></td>
+
+        <td><%= transaction.newFeature1 %></td>
+
+        <td><%= transaction.newFeature2 %></td>
+
+        <td><%= transaction.newFeature3 %></td>
+
+      </tr>
+
+    <% }); %>
+
+  </tbody>
+
+</table>
+
+<form action="/feature_engineering" method="POST">
+
+  <input type="checkbox" id="logTransform" name="logTransform">
+
+  <label for="logTransform">Log-transform amount</label><br><br>
+
+  <input type="checkbox" id="squareRoot" name="squareRoot">
+
+  <label for="squareRoot">Square root of amount</label><br><br>
+
+  <input type="checkbox" id="avgAmount" name="avgAmount">
+
+  <label for="avgAmount">Amount divided by average amount</label><br><br>
+
+  <input type="submit" value="Create Features">
+
+</form>
+
